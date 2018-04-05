@@ -50,6 +50,53 @@ class LinkButtonBlock(blocks.StructBlock):
         value_class = LinkButtonValue
 
 
+
+class ImageBlockValue(blocks.StructValue):
+    # and https://stackoverflow.com/questions/49374083
+    # see http://docs.wagtail.io/en/v2.0/topics/streamfield.html#custom-value-class-for-structblock
+    @property
+    def rewrite_rule(self):
+        return '{rule}-{x}-{y}-c{crop}'.format(
+            rule=self.rule
+            x=self.x
+            y=self.y
+            crop=self.crop
+        )
+
+
+class ImageBlock(blocks.StructBlock):
+    image = ImageChooserBlock()
+    rule = blocks.ChoiceBlock(
+        choices=[
+            ('original', 'Use the original image dimensions'),
+            ('min', 'Fit to at least these dimensions'),
+            ('max', 'Fit to at most these dimensions'),
+            ('fill', 'Crop to these dimensions (around focus point if any)'),
+            ('width','Explicitly set width only'),
+            ('height','Explicitly set height only'),
+        ],
+        default='original'
+    )
+    x = blocks.CharBlock(help_text='horizontal dimension.')
+    y = blocks.CharBlock(help_text='vertical dimension.')
+    crop = blocks.CharBlock(help_text='crop factor when using the "fill" rule.')
+
+    alignment = blocks.ChoiceBlock(
+        choices=[
+            ('none', 'Do not apply any explicit alignment classes.')
+            ('left', 'Left-align this image with the page content.'),
+            ('right', 'Right-align this image with the page content.'),
+            ('full', 'Make this image full-width.'),
+        ],
+        default='none'
+    )
+
+    class Meta:
+        icon = 'image'
+        template = 'wagtailpages/blocks/image_block.html'
+        value_class = ImageBlockValue
+
+
 class ImageTextBlock(blocks.StructBlock):
     text = blocks.RichTextBlock(
         features=['bold', 'italic', 'link', ]
