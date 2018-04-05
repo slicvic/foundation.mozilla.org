@@ -81,7 +81,7 @@ export default class JoinUs extends React.Component {
           <div className="row">
             <div className="col-12 join-content">
               <div className="mb-5 join-page-title">
-                <h2 className="h1-white">{!this.state.signupSuccess ? `${this.props.ctaHeader}` : `Thank You`}</h2>
+                <h2 className="h1-heading">{!this.state.signupSuccess ? `${this.props.ctaHeader}` : `Thank You`}</h2>
               </div>
               <div className="join-heading">
                 <h2>{!this.state.signupSuccess ? `${this.props.ctaHeader}` : `Thank You`}</h2>
