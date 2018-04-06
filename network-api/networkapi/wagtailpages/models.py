@@ -29,7 +29,7 @@ base_fields = [
             'link', 'hr',
         ]
     )),
-    ('image', customblocks.ImageBlock()),
+    ('image', customblocks.AlignedImageBlock()),
     ('image_text', customblocks.ImageTextBlock()),
     ('figure', customblocks.FigureBlock()),
     ('figuregrid', customblocks.FigureGridBlock()),

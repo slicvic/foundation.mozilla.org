@@ -5,34 +5,46 @@
 
   .img-wrapper {
     width: 100%;
+
     &.left-align {
-    	text-align: left;
+      text-align: left;
     }
+
     &.right-align {
-    	text-align: right;
+      text-align: right;
     }
+
     &.full-width {
-    	width: 100%;
-    	height: audo;
+      width: 100%;
+      height: audo;
+
+      & img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
   }
 
   img {
     &.icon {
       max-width: 100px;
-      max-height:100px;
+      max-height: 100px;
     }
+
     &.small {
       max-width: 200px;
-      max-height:200px;
+      max-height: 200px;
     }
-	&.medium {
+
+    &.medium {
       max-width: 400px;
-      max-height:400px;
+      max-height: 400px;
     }
-	&.large {
+
+    &.large {
       max-width: 800px;
-      max-height:800px;
+      max-height: 800px;
     }
   }
 }

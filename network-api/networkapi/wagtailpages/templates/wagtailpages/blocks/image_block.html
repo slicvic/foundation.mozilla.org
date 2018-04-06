@@ -1,8 +1,4 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% image value.image original as img %}
-
-<div class="img-wrapper {{ value.alignment }}">
-	<img src="{{ img.url }}" alt="{{ img.alt }}" class="{{ value.size }}">
-	</img>
-</div>
+<img src="{{ img.url }}" alt="{{ img.alt }}" class="{{ value.size }}">
