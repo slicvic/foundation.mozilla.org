@@ -84,7 +84,7 @@ export default class JoinUs extends React.Component {
                 { this.state.signupSuccess && <h2>Thank You</h2> }
               </div>
               {!this.state.signupSuccess ?
-                <p className="lead-black" dangerouslySetInnerHTML={{__html:this.props.ctaDescription}}></p>
+                <p className="body-large" dangerouslySetInnerHTML={{__html:this.props.ctaDescription}}></p>
                 : <p>{this.props.thankYouMessage}</p>
               }
             </div>
