@@ -67,6 +67,7 @@ class ImageBlock(blocks.StructBlock):
         icon = 'image'
         template = 'wagtailpages/blocks/image_block.html'
 
+
 class AlignedImageBlock(ImageBlock):
     alignment = blocks.ChoiceBlock(
         choices=[
